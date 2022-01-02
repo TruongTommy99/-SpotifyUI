@@ -12,7 +12,7 @@ struct Limage_text_rImage: View {
         HStack {
             Image(systemName: "timelapse")
                 .padding(.trailing,10)
-            Text("title of song")
+            Text("title of the song")
             Spacer()
             Image(systemName: "ellipsis")
         }
