@@ -68,11 +68,7 @@ struct ContentItemViewer: View {
                             Limage_text_rImage()
                         }
                     }
-                    
                     }.background(.black)
-                
-                
-                
                     }
                     .background(.clear)
                         
@@ -130,15 +126,13 @@ struct ContentItemViewer: View {
         
         
             
+        
+        
         }
     
     func get_playButtonWidth() -> CGFloat {
-        if playButton_offset > -150 {
-            return 240
-        }
-        else if playButton_offset <= -300 {
-            return 50
-        }
+        if playButton_offset > -150 { return 240 }
+        else if playButton_offset <= -300 { return  50}
         else {
             let width:CGFloat = 240 - (190*(((-1*playButton_offset)-150)/150))
             return width
