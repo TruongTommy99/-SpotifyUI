@@ -9,7 +9,14 @@ import SwiftUI
 
 struct HomePage: View {
     var body: some View {
-        Text("Welcome to Spotify")
+        VStack{
+        Text("Welcome to Spotify, college edition!")
+        MusicPlayer()
+                .frame(width: 300, height: 160)
+                .cornerRadius(10)
+        musicTimer()
+        }
+        .padding()
     }
 }
 
