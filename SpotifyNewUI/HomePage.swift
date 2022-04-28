@@ -10,7 +10,9 @@ import SwiftUI
 struct HomePage: View {
     var body: some View {
         VStack{
-        Text("Welcome to Spotify, college edition!")
+        Text("Spotify, college edition!")
+                .font(.title)
+                .bold()
         MusicPlayer()
                 .frame(width: 300, height: 160)
                 .cornerRadius(10)

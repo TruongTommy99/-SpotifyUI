@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentItemViewer: View {
+    @State private var showingSearchScreen = false
     var topSpacer_height:CGFloat = 375
     @State var playButton_offset:CGFloat = 400
     var reusableColor = Color.init(red: 61/255, green: 89/255, blue: 115/255)
@@ -109,7 +110,13 @@ struct ContentItemViewer: View {
             //Final Layer - the Back to menu button
             VStack {
                 HStack{
+
                 Image(systemName: "chevron.left")
+                        .onTapGesture {
+                             showingSearchScreen = true
+                            print("OK")
+                        }
+                        
                 Spacer()
                 Image(systemName: "ellipsis")
                 }.foregroundColor(.white)

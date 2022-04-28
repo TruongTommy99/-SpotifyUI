@@ -10,32 +10,58 @@ import SwiftUI
 struct SearchPage: View {
    //@ObservedObject var viewModel : SongList = SongList()
     @State private var searchText = ""
+    var allCategories = ["Hip Hop","Rap","Pop","Jazz","K-POP","Blues"]
+    
+    var categories:[String:String] = ["Hip Hop":"blue", "Rap" : "red"]
     
     var body: some View {
+        VStack{
         NavigationView {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(spacing: 20) {
+                List {
+                    ForEach(searchResults,id :\.self){ category_ in
+                        Text(category_)
+                    }
+                }
+            }
+            .navigationTitle("Music")
+            .searchable(text: $searchText,prompt: "What do you want to listen to?")
+        }
+        .frame(width: .infinity, height: 300)
+            
+                ScrollView{
                 HStack{
                 songCategoryBox(text: "Hip Hop", color: .blue)
                 songCategoryBox(text: "Rap", color: .red)
                 }
                 HStack{
                 songCategoryBox(text: "Pop ", color: .green)
-                    songCategoryBox(text: "Jazz", color: .pink)
+                songCategoryBox(text: "Jazz", color: .pink)
                 }
                 HStack{
                     songCategoryBox(text: "K-POP", color: .brown)
                     songCategoryBox(text: "Blues", color: .teal)
                 }
-                
-            }
-            .searchable(text: $searchText,prompt: "What do you want to listen to?")
-            .navigationTitle("Music")
+                }
+        }
+
+        
+    }
+    
+    var searchResults:[String]{
+        if allCategories.isEmpty {
+            return allCategories
+        }
+        else {
+            return allCategories.filter{ $0.contains(searchText)}
         }
     }
 }
 
 
 
+
+/*
 struct EmptyStateView: View {
     var body: some View {
         VStack {
@@ -51,6 +77,8 @@ struct EmptyStateView: View {
         .foregroundColor(.buttonColor)
     }
 }
+ 
+ */
 
 /*
 struct SearchBar : UIViewRepresentable {
@@ -71,8 +99,11 @@ struct SearchBar : UIViewRepresentable {
 
 
 
+
+
 struct SearchPage_Previews: PreviewProvider {
     static var previews: some View {
-        SearchPage()
+            SearchPage()
+                .previewInterfaceOrientation(.portrait)
     }
 }
