@@ -10,7 +10,7 @@ import SwiftUI
 struct musicTimer: View {
     @ObservedObject var timerManager = timeManager()
     @State var selectedPickerIndex = 0
-    let availableMinute = [5,10,15,20,30,45,60]
+    let availableMinute = [5,15,20,30,45,60]
     
     
     var body: some View {
@@ -23,7 +23,7 @@ struct musicTimer: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 100, height: 100)
-                .foregroundColor(.red)
+                .foregroundColor(Color.buttonColor)
                 .onTapGesture(perform: {
                     if self.timerManager.timerMode == .initial {
                         self.timerManager.setTimerLength(
@@ -54,7 +54,7 @@ struct musicTimer: View {
                             Text("\(self.availableMinute[$0]) minutes ")
                         }
                     }
-                    .pickerStyle(.inline)
+                    .pickerStyle(.segmented)
                     .labelsHidden()
                 }
                 

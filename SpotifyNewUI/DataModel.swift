@@ -8,7 +8,6 @@
 import Foundation
 
 
-
 class DataModel {
     private var dataTask = URLSessionDataTask()
     

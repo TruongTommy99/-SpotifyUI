@@ -67,3 +67,5 @@ func secsToMins(secs:Int)-> String {
     let secondStamp = seconds.count > 1 ? seconds : "0" + seconds
     return "\(minuteStamp) : \(secondStamp)"
 }
+
+
