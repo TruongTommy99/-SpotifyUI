@@ -59,7 +59,6 @@ class timeManager : ObservableObject {
     
 }
 
-
 func secsToMins(secs:Int)-> String {
     let minute = "\((secs%3600)/60)"
     let seconds = "\((secs%3600)%60)"
